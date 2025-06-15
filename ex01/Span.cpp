@@ -21,11 +21,13 @@ void Span::addNumber(int num) {
 }
 
 int Span::shortestSpan() const {
+	int min_span;
+
 	if (_vec.size() < 2)
 		throw std::runtime_error("Not enough elements");
 	std::vector<int> sorted_vec = _vec;
 	sort(sorted_vec.begin(), sorted_vec.end());
-	int min_span = sorted_vec[1] - sorted_vec[0];
+	min_span = sorted_vec[1] - sorted_vec[0];
 	for (size_t i = 2; i < sorted_vec.size(); i++) {
 		min_span = std::min(min_span, sorted_vec[i] - sorted_vec[i - 1]);
 	}
@@ -35,5 +37,7 @@ int Span::shortestSpan() const {
 int Span::longestSpan() const {
 	if (_vec.size() < 2)
 		throw std::runtime_error("Not enough elements");
-	return _vec.back() - _vec.front();
+	int min = *std::min_element(_vec.begin(), _vec.end());
+	int max = *std::max_element(_vec.begin(), _vec.end());
+	return max - min;
 }

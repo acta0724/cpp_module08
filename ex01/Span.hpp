@@ -4,6 +4,7 @@
 #include <vector>
 #include <algorithm>
 #include <stdexcept>
+#include <iterator>
 
 class Span {
  private:
@@ -15,7 +16,7 @@ class Span {
 	Span(const Span &other);
 	Span &operator=(const Span &other);
 	template <typename T>
-	void addNumber(T begin, T end){
+	void addNumber(T begin, T end) {
 		if (_vec.size() + std::distance(begin, end) > _size)
 			throw std::runtime_error("Span is full");
 		_vec.insert(_vec.end(), begin, end);
