@@ -11,6 +11,13 @@ int main() {
 	sp.addNumber(17);
 	sp.addNumber(9);
 	sp.addNumber(11);
+	std::cout << "addNumber(12) should throw an exception" << std::endl;
+	try {
+		sp.addNumber(12);
+	}
+	catch (std::exception &e) {
+		std::cout << "Exception: " << e.what() << std::endl;
+	}
 	std::cout << "Shortest span: " << sp.shortestSpan() << std::endl;
 	std::cout << "Longest span: " << sp.longestSpan() << std::endl;
 	std::cout << "\n=== Multiple Elements Test ===" << std::endl;
@@ -25,8 +32,8 @@ int main() {
 		std::cout << "Shortest span: " << sp2.shortestSpan() << std::endl;
 		std::cout << "Longest span: " << sp2.longestSpan() << std::endl;
 		std::cout << "\nTrying to add more elements than capacity..." << std::endl;
-		std::vector<int> more_numbers(10000);
-		for (int i = 0; i < 10000; ++i) {
+		std::vector<int> more_numbers(10001);
+		for (int i = 0; i < 10001; ++i) {
 			more_numbers.push_back(i * 2);
 		}
 		sp2.addNumber(more_numbers.begin(), more_numbers.end());
