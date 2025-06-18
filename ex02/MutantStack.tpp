@@ -1,13 +1,8 @@
-// MutantStack.tpp
-
 #ifndef MUTANTSTACK_TPP
 #define MUTANTSTACK_TPP
 
-#ifndef MUTANTSTACK_HPP
 #include "MutantStack.hpp"
-#endif
 
-// Orthodox Canonical Form
 template <typename T>
 MutantStack<T>::MutantStack() {}
 
@@ -24,7 +19,6 @@ MutantStack<T> &MutantStack<T>::operator=(const MutantStack &other) {
 	return *this;
 }
 
-// Iterator methods - normal iterators
 template <typename T>
 typename MutantStack<T>::iterator MutantStack<T>::begin() {
 	return this->c.begin();
@@ -45,7 +39,6 @@ typename MutantStack<T>::const_iterator MutantStack<T>::end() const {
 	return this->c.end();
 }
 
-// Iterator methods - reverse iterators
 template <typename T>
 typename MutantStack<T>::reverse_iterator MutantStack<T>::rbegin() {
 	return this->c.rbegin();
@@ -66,4 +59,4 @@ typename MutantStack<T>::const_reverse_iterator MutantStack<T>::rend() const {
 	return this->c.rend();
 }
 
-#endif // MUTANTSTACK_TPP
+#endif

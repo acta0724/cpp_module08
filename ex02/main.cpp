@@ -41,6 +41,14 @@ void test_mutant_stack() {
 		std::cout << *rit << std::endl;
 		++rit;
 	}
+
+	std::cout << "\nTesting const reverse iterators:" << std::endl;
+	MutantStack<int>::const_reverse_iterator crit = const_mstack.rbegin();
+	MutantStack<int>::const_reverse_iterator crite = const_mstack.rend();
+	while (crit != crite) {
+		std::cout << *crit << std::endl;
+		++crit;
+	}
 	
 	std::cout << "\nTesting compatibility with std::stack" << std::endl;
 	std::stack<int> s(mstack);
